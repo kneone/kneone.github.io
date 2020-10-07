@@ -19,15 +19,14 @@
       </p>
       <p>
           do i get that?
-       </p>
-    <div id="viz">
+      </p>
+      <div id="viz">
       </div>
       <script>
-var vlSpec = {
-    {
-  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+var vlSpec = {  
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "data": {"url": "data/flights-200k.json"},
-   "hconcat":[
+  "hconcat":[
     {
       "mark": {"type":"rect", "tooltip":{"content":"data"}},
       "width": 300,
@@ -51,12 +50,12 @@ var vlSpec = {
           }
         },
          {
-             "mark": "bar",
-             "transform":[{"filter":{"selection":"clickabddrag"}}],
-             "encoding":{
-                 "x":{"field":"delay", "type": "quantitative"},
-                 "y": {"aggregate":"count", "type": "quantitative"},
-                 "color":{"value":"gold"}
+          "mark": "bar",
+          "transform":[{"filter":{"selection":"clickabddrag"}}],
+          "encoding":{
+            "x":{"field":"delay", "type": "quantitative"},
+            "y": {"aggregate":"count", "type": "quantitative"},
+            "color":{"value":"gold"}
           }
         }
       ]
