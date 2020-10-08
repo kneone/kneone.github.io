@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "data": {"url": "https://raw.githubusercontent.com/kneone/kneone.github.io/master/flights-200k.csv"},
+  "data": {"url": "https://raw.githubusercontent.com/kneone/kneone.github.io/master/flights.csv"},
   "hconcat":[
     {
       "mark": {"type":"rect", "tooltip":{"content":"data"}},
