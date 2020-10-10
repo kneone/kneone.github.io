@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {"url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/flights-200k.json"},
+  "hconcat":[
+    {
+      "mark": {"type":"rect", "tooltip":{"content":"data"}},
+      "width": 300,
+      "height": 200,
+      "selection":{"clickabddrag":{"type":"interval"}}, 
+      "encoding":{
+        "x":{"field":"delay", "type": "quantitative","bin": {"maxbins":60}},
+        "y": {"field": "distance", "type": "quantitative","bin": {"maxbins": 40}},
+        "color":{"aggregate":"sum", "field":"time","scale":{"type":"log"},
+        "opacity":{"condition":{"selection":"click_multiple"},"value":0.2}
+        }
+      }
+    }, 
+    {
+      "layer":[
+        {
+          "mark": "bar",
+          "encoding":{
+            "x":{"field":"delay", "type": "quantitative"},
+            "y": {"aggregate":"count", "type": "quantitative"}
+          }
+        },
+         {
+          "mark": "bar",
+          "transform":[{"filter":{"selection":"clickabddrag"}}],
+          "encoding":{
+            "x":{"field":"delay", "type": "quantitative"},
+            "y": {"aggregate":"count", "type": "quantitative"},
+            "color":{"value":"gold"}
+          }
+        }
+      ]
+    }
+  ]
+}
